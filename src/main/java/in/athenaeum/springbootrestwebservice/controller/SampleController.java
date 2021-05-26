@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.*;
 public class SampleController {
 
     @GetMapping
-    public String greet() {
-        return "Good morning!";
+    public String greet(
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) Integer year) {
+        return "Good morning " + firstName + " " + year;
     }
 
     @GetMapping("/{id}")
