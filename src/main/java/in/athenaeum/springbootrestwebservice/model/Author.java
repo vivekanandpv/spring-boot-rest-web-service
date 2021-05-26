@@ -12,6 +12,6 @@ public class Author {
     private String lastName;
     private String email;
 
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany
     private Set<Book> books;
 }

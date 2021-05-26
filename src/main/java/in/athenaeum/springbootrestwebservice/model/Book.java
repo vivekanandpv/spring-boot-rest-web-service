@@ -15,7 +15,7 @@ public class Book {
     @ManyToOne
     private Publisher publisher;    //publisher_id
 
-    @Column(name = "publisher_id")
+    @Column(name = "publisher_id", insertable = false, updatable = false)
     private int publisherId;
 
     @ManyToMany(mappedBy = "books")
