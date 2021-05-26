@@ -13,7 +13,11 @@ public class Author {
     private String lastName;
     private String email;
 
+    //  The default fetch is lazy (-to-many side).
+    //  That means child table is queried when accessed
+    //  This probably is the best approach for general situations
     @ManyToMany
+
     @JoinTable(name = "book_author", joinColumns = {
             @JoinColumn(name = "author_id") //  this entity
     }, inverseJoinColumns = {

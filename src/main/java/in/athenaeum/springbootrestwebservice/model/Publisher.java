@@ -13,6 +13,9 @@ public class Publisher {
     private String email;
     private String country;
 
+    //  The default fetch is lazy (-to-many side).
+    //  That means child table is queried when accessed
+    //  This probably is the best approach for general situations
     @OneToMany(mappedBy = "publisher")
     private List<Book> books = new ArrayList<>();
 

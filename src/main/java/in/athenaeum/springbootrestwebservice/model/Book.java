@@ -13,12 +13,18 @@ public class Book {
     private int nPages;
     private double price;
 
+    //  The default fetch is eager here (-to-one side).
+    //  That means Parent table is queried eagerly
+    //  This probably is the best approach for general situations
     @ManyToOne(optional = false)  //  this is optional=true by default. Watch out!
     private Publisher publisher;    //publisher_id
 
     @Column(name = "publisher_id", insertable = false, updatable = false)
     private int publisherId;
 
+    //  The default fetch is lazy (-to-many side).
+    //  That means child table is queried when accessed
+    //  This probably is the best approach for general situations
     @ManyToMany(mappedBy = "books")
     private Set<Author> authors = new HashSet<>();
 
