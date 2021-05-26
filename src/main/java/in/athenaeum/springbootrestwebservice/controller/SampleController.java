@@ -1,36 +1,37 @@
 package in.athenaeum.springbootrestwebservice.controller;
 
+import in.athenaeum.springbootrestwebservice.model.Person;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/sample")
 public class SampleController {
 
     @GetMapping
-    public String greet(
-            @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) Integer year) {
-        return "Good morning " + firstName + " " + year;
+    public List<Person> get() {
+        return List.of(
+                new Person("Vinayak", "Patil", "KE345"),
+                new Person("Rajeev", "Armugam", "HJ7866"),
+                new Person("Dheeraj", "K", "LK876"),
+                new Person("Ramya", "L", "IU1457")
+        );
     }
 
     @GetMapping("/{id}")
-    public String getCounter(@PathVariable int id) {
-        return "Counter = " + id;
+    public Person get(@PathVariable int id) {
+        return new Person("Vinayak", "Patil", "KE345");
     }
 
     @PostMapping
-    public String post() {
-        return "Success: POST";
+    public String post(@RequestBody Person person) {
+        return "Success: POST " + person.getEmployeeCode();
     }
 
     @PutMapping
-    public String update() {
-        return "Success: PUT";
-    }
-
-    @PatchMapping
-    public String patch() {
-        return "Success: PATCH";
+    public String update(@RequestBody Person person) {
+        return "Success: PUT " + person.getFirstName();
     }
 
     @DeleteMapping("/{id}")
