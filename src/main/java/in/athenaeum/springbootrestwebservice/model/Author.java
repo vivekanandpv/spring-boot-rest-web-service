@@ -14,6 +14,11 @@ public class Author {
     private String email;
 
     @ManyToMany
+    @JoinTable(name = "book_author", joinColumns = {
+            @JoinColumn(name = "author_id") //  this entity
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "book_id")   //  other entity
+    })
     private Set<Book> books = new HashSet<>();
 
     public int getId() {
