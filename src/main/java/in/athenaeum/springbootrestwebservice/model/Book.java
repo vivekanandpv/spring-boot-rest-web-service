@@ -13,8 +13,7 @@ public class Book {
     private int nPages;
     private double price;
 
-    @ManyToOne
-    @JoinColumn(name = "publisher_id")
+    @ManyToOne(optional = false)  //  this is optional=true by default. Watch out!
     private Publisher publisher;    //publisher_id
 
     @Column(name = "publisher_id", insertable = false, updatable = false)
