@@ -14,6 +14,7 @@ public class Book {
     private double price;
 
     @ManyToOne
+    @JoinColumn(name = "publisher_id")
     private Publisher publisher;    //publisher_id
 
     @Column(name = "publisher_id", insertable = false, updatable = false)

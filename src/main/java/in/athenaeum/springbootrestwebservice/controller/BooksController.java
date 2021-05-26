@@ -29,13 +29,13 @@ public class BooksController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(BookViewModel viewModel) {
+    public ResponseEntity<?> create(@RequestBody BookViewModel viewModel) {
         service.create(viewModel);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping
-    public ResponseEntity<?> update(BookViewModel viewModel) {
+    public ResponseEntity<?> update(@RequestBody BookViewModel viewModel) {
         service.update(viewModel);
         return ResponseEntity.ok().build();
     }
