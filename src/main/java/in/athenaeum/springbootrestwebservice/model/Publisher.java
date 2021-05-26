@@ -1,6 +1,7 @@
 package in.athenaeum.springbootrestwebservice.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,5 +14,5 @@ public class Publisher {
     private String country;
 
     @OneToMany(mappedBy = "publisher")
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
 }

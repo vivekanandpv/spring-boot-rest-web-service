@@ -1,6 +1,7 @@
 package in.athenaeum.springbootrestwebservice.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,5 +20,5 @@ public class Book {
     private int publisherId;
 
     @ManyToMany(mappedBy = "books")
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
 }
